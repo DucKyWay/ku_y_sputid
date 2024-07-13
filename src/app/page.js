@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Earth } from "../../components/Earth";
+import { Random_and_cal } from "../../components/Random_and_cal";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
         </input>
       </div>
       <Earth/>
+      <Random_and_cal/>
     </main>
   );
 }
