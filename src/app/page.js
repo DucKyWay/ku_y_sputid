@@ -19,12 +19,8 @@ export default function Home() {
           STIPUD GPS
         </h1>
       </div>
-      <div className="flex justify-center items-center my-10">
-        <input className="rounded-md h-8 w-80 px-4 focus:outline-none text-black focus:h-9 transition-all"  placeholder="Search">
-        </input>
-      </div>
       <Earth/>
-      <h1 className="text-red-400">Calculated Random Distance: {cal_random_distance()}</h1>
+      <h1 className="">Calculated Random Distance: {cal_random_distance()}</h1>
       <LocationComponent/>
     </main>
   );
