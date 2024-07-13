@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { Earth } from "../../components/Earth";
 import { Random_and_cal } from "../../components/Random_and_cal";
+import { LocationComponent } from "../../components/Gps_fake";
+import dynamic from 'next/dynamic';
 
 export default function Home() {
   return (
@@ -16,6 +18,7 @@ export default function Home() {
       </div>
       <Earth/>
       <Random_and_cal/>
+      <LocationComponent/>
     </main>
   );
 }
