@@ -1,8 +1,11 @@
 import Image from "next/image";
 import { Earth } from "../../components/Earth";
 import { Random_and_cal } from "../../components/Random_and_cal";
-import { LocationComponent } from "../../components/Gps_fake";
 import dynamic from 'next/dynamic';
+
+const LocationComponent = dynamic(() => import('../../components/LocationComponent'), {
+  ssr: true, // Disable server-side rendering for this component
+});
 
 export default function Home() {
   return (
