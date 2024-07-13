@@ -35,6 +35,7 @@ export const Earth = () => {
                     height={400}
                     alt="earth2" />
             </div>
+            <p className="bgre">fd</p>
         </>
     );
 };

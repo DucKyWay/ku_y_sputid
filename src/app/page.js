@@ -7,6 +7,10 @@ const LocationComponent = dynamic(() => import('../../components/LocationCompone
   ssr: true, // Disable server-side rendering for this component
 });
 
+const cal_random_distance = () => {
+  return 40075 - (Math.floor(Math.random() * (1620 - 1) + 1));
+};
+
 export default function Home() {
   return (
     <main className="flex flex-col min-h-screen bg-gray-800">
@@ -20,7 +24,7 @@ export default function Home() {
         </input>
       </div>
       <Earth/>
-      <Random_and_cal/>
+      <h1 className="text-red-400">Calculated Random Distance: {cal_random_distance()}</h1>
       <LocationComponent/>
     </main>
   );
