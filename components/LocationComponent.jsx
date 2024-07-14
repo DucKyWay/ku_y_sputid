@@ -29,7 +29,7 @@ const LocationComponent = () => {
       {error ? (
         <p>Error: {error}</p>
       ) : (
-        <div>
+        <div className='ml-8 bottom-0'>
           <p>Latitude: {location.latitude}</p>
           <p>Longitude: {location.longitude}</p>
         </div>
