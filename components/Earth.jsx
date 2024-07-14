@@ -58,12 +58,12 @@ export const Earth = () => {
             <div hidden={trans} className={`flex justify-center items-center transition-all mt-10`} style={{ transform: trans ? 'translateX(-100%)' : "" }}>
                 <Image
                     src="/IMG_2037.gif"
-                    width={600}
-                    height={600}
+                    width={700}
+                    height={700}
                     alt="earth" />
             </div>
 
-            <div hidden={!trans}  className="flex flex-row h-fit  ml-60 translate-y-full transition-all" style={{ transform: result ? 'translateY(-275px)' : "" }}>
+            <div hidden={!trans}  className="flex flex-row h-fit  ml-60 translate-y-full transition-all" style={{ transform: result ? 'translateY(-375px)' : "" }}>
                 <div hidden={!trans} >
                     <Image
                         src="/result.png"
