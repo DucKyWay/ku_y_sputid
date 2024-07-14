@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useState ,useEffect} from "react";
 import { useRouter } from 'next/navigation';
+import useSound from "use-sound";
 
 export const Earth = () => {
     let distance
@@ -12,6 +13,7 @@ export const Earth = () => {
         console.log(localStorage);
     },[])
     distance = localStorage.getItem("random")
+    const [play] = useSound("/tada.mp3");
     const router = useRouter();
     const [trans, setTrans] = useState(false)
     const [result, setResult] = useState(false)
@@ -21,6 +23,7 @@ export const Earth = () => {
     const handler = () => {
         if(display){
             console.log("refree");
+            setTrans(false);
             window.location.reload()
             return
         }
@@ -28,6 +31,7 @@ export const Earth = () => {
             setResult(true)
         }, 200)
         setDisplay(true)
+        play()
 
     }
     const handle_change = (e)=>{
@@ -60,14 +64,14 @@ export const Earth = () => {
             </div>
 
             <div hidden={!trans}  className="flex flex-row h-fit  ml-60 translate-y-full transition-all" style={{ transform: result ? 'translateY(-275px)' : "" }}>
-                <div hidden={!trans} className= "" >
+                <div hidden={!trans} >
                     <Image
                         src="/result.png"
                         width={400}
                         height={400}
                         alt="earth2" />
                 </div>
-                {value!="ใจเธอ" ?<>
+                {value!="ใจเธอ" && value !="บ้านเธอ" && value !="บ้านพ่อแม่เธอ" && value !="เธอ"?<>
                     <div className="flex flex-col pl-7">
                     <p hidden={!trans} className="text-3xl font-bold pl-" >To {value}</p>
                     <div hidden={!trans} className="flex mt-5">
@@ -78,8 +82,8 @@ export const Earth = () => {
                 <>
                     <div className="flex flex-col pl-7">
                     <p hidden={!trans} className="text-3xl font-bold pl-" >To {value}</p>
-                    <div hidden={!trans} className="flex mt-5">
-                        <h1 className="text-2xl">ต่อให้เราค้นหาทางไปใจเธอเท่าไหร่ ก็ยังยากกว่าการมางาน Stipud Honkatack ครับ</h1>
+                    <div className="flex mt-5">
+                        <h1 hidden={!trans} className="text-2xl">ต่อให้เราค้นหาทางไปใจเธอเท่าไหร่ ก็ยังยากกว่าการมางาน Stupid hackathon ครับ</h1>
                     </div>
                     </div>
                 </>}
