@@ -49,7 +49,12 @@ export const Earth = () => {
                 <input className="rounded-md h-8 w-80 px-4 focus:outline-none text-black focus:h-9 transition-all"  placeholder="Search"
                 onChange={handle_change}
                 value = {value}
-                disabled={display}>
+                disabled={display}
+                onKeyDown={(e) => {
+                    if(e.key == 'Enter'){
+                        setTrans(true);
+                        handler()
+                  }}}>
                 </input>
                 <button disabled={disable} className=" bg-blue-700 px-5 py-2 rounded-md disabled:bg-blue-900 disabled:text-gray-400 hover:disabled:scale-100 hover:scale-110 transition-all" onClick={(e) => { console.log("hello"); setTrans(true); handler() }}>
                     <p>{display? "refresh":"Navigate"}</p>
@@ -71,11 +76,14 @@ export const Earth = () => {
                         height={400}
                         alt="earth2" />
                 </div>
-                {value!="ใจเธอ" && value !="บ้านเธอ" && value !="บ้านพ่อแม่เธอ" && value !="เธอ"?<>
+                {value!="ใจเธอ" && value !="บ้านเธอ" && value !="บ้านพ่อแม่เธอ" && value !="เธอ" && value != "[hkogTv"?<>
                     <div className="flex flex-col pl-7">
                     <p hidden={!trans} className="text-3xl font-bold pl-" >To {value}</p>
                     <div hidden={!trans} className="flex mt-5">
-                        <h1 hidden={!trans} className="text-2xl">Approximate Distances: {distance} Km</h1>
+                        <h1 hidden={!trans} className="text-3xl">Approximate Distances: {distance} Km</h1>
+                    </div>
+                    <div hidden={!trans} className="flex mt-5">
+                        <a hidden={!trans} className="tex-2xl font-semibold" href="https://www.youtube.com/watch?v=ZZvIVRQ4E7I">Click to Goo pai ma too.com</a>
                     </div>
                     </div>
                 </>    :
@@ -83,7 +91,13 @@ export const Earth = () => {
                     <div className="flex flex-col pl-7">
                     <p hidden={!trans} className="text-3xl font-bold pl-" >To {value}</p>
                     <div className="flex mt-5">
-                        <h1 hidden={!trans} className="text-2xl">ต่อให้เราค้นหาทางไปใจเธอเท่าไหร่ ก็ยังยากกว่าการมางาน Stupid hackathon ครับ</h1>
+                        <h1 hidden={!trans} className="text-3xl">ต่อให้เราค้นหาทางไปใจเธอเท่าไหร่ ก็ยังยากกว่าการมางาน Stupid hackathon ครับ</h1>
+                    </div>
+                    <div hidden={!trans} className="flex mt-5">
+                        <hi hidden={!trans} className="text-2xl">ปล่อยวางเถอะ</hi> 
+                    </div>
+                    <div className="flex mt-5">
+                        <iframe hidden={!trans} width="560" height="315" src="https://www.youtube.com/embed/2fP6OLhBCSQ?si=1OhKOKrbu9c6LIlp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     </div>
                     </div>
                 </>}
