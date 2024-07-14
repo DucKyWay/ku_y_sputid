@@ -20,7 +20,6 @@ export default function Home() {
         </h1>
       </div>
       <Earth/>
-      <h1 className="">Calculated Random Distance: {cal_random_distance()}</h1>
       <LocationComponent/>
     </main>
   );
