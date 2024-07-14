@@ -10,9 +10,9 @@ export const Earth = () => {
     useEffect(()=>{
         localStorage.setItem("random",40075 - (Math.floor(Math.random() * (1620 - 1) + 1)))
         
+        distance = localStorage.getItem("random")
         console.log(localStorage);
     },[])
-    distance = localStorage.getItem("random")
     const [play] = useSound("/tada.mp3");
     const router = useRouter();
     const [trans, setTrans] = useState(false)
