@@ -20,6 +20,7 @@ export const Earth = () => {
     const [value, setValue] = useState('')
     const [disable, setDisable] = useState(true)
     const [display, setDisplay] = useState(false)
+    const [load, setLoad] = useState(false)
     const handler = () => {
         if(display){
             console.log("refree");
@@ -27,11 +28,14 @@ export const Earth = () => {
             window.location.reload()
             return
         }
+        setLoad(true)
         setTimeout(() => {
             setResult(true)
-        }, 200)
+            play()
+            setLoad(false)
+        }, 2000)
+        
         setDisplay(true)
-        play()
 
     }
     const handle_change = (e)=>{
@@ -58,6 +62,17 @@ export const Earth = () => {
             <div hidden={trans} className={`flex justify-center items-center transition-all mt-10`} style={{ transform: trans ? 'translateX(-100%)' : "" }}>
                 <Image
                     src="/IMG_2037.gif"
+                    width={700}
+                    height={700}
+                    alt="earth" />
+            </div>
+
+            <div hidden={!load} className={`flex flex-col justify-center items-center -translate-y-96 transition-all`} >
+                <p hidden={!load} className="font-bold text-lg">Loading...</p>
+                <p hidden={!load} className="text-lg mb-2">Finding best longest path</p>
+                <Image
+                    hidden={!load}
+                    src="/loading.gif"
                     width={700}
                     height={700}
                     alt="earth" />
