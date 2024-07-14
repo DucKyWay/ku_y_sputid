@@ -29,9 +29,9 @@ const LocationComponent = () => {
       {error ? (
         <p>Error: {error}</p>
       ) : (
-        <div className='ml-8 bottom-0'>
-          <p>Latitude: {location.latitude}</p>
-          <p>Longitude: {location.longitude}</p>
+        <div className='bottom-0'>
+          <p className='flex justify-center item-center'>Latitude: {location.latitude}</p>
+          <p className='flex justify-center item-center'>Longitude: {location.longitude}</p>
         </div>
       )}
     </div>
