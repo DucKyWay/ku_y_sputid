@@ -1,18 +1,12 @@
 'use client'
 
 import Image from "next/image";
-import { useState ,useEffect} from "react";
+import { useState ,useEffect, useRef} from "react";
 import { useRouter } from 'next/navigation';
 import useSound from "use-sound";
 
 export const Earth = () => {
-    let distance
-    useEffect(()=>{
-        localStorage.setItem("random",40075 - (Math.floor(Math.random() * (1620 - 1) + 1)))
-        
-        distance = localStorage.getItem("random")
-        console.log(localStorage);
-    },[])
+    const distance = useRef(40075 - (Math.floor(Math.random() * (1620 - 1) + 1)))
     const [play] = useSound("/tada.mp3");
     const router = useRouter();
     const [trans, setTrans] = useState(false)
@@ -95,7 +89,7 @@ export const Earth = () => {
                     <div className="flex flex-col pl-7">
                     <p hidden={!trans} className="text-3xl font-bold pl-" >To {value}</p>
                     <div hidden={!trans} className="flex mt-5">
-                        <h1 hidden={!trans} className="text-3xl">Approximate Distances: {distance} Km</h1>
+                        <h1 suppressHydrationWarning hidden={!trans} className="text-3xl">Approximate Distances: {distance.current} Km</h1>
                     </div>
                     <div hidden={!trans} className="flex mt-5">
                         <a hidden={!trans} className="tex-2xl font-semibold" href="https://www.youtube.com/watch?v=ZZvIVRQ4E7I">Click to Goo pai ma too.com</a>
